@@ -9,6 +9,7 @@ import { useState } from "react";
 import { BsFilter } from "react-icons/bs";
 import { Text, Icon } from "@chakra-ui/react";
 import SearchFilters from "./SearchFilters";
+import svg from '../Logo/No-data-amico.svg'
 
 
 const Rent = () => {
@@ -19,10 +20,11 @@ const Rent = () => {
   const [roomsMin,setRoomsMin]=useState(0);
   const [bathsMin,setBathsMin]=useState(0);
   const [areaMax,setAreaMax]=useState(2000);
-  const [maxPrice,setMaxPrice]=useState(20000);
+  const [minPrice,setMinPrice]=useState(20000);
+  const [rentFrequency,setRentFrequency]=useState('Monthly')
 
   
-  const { data, isFetching } = useGetPropertiesForRentQuery({roomsMin,bathsMin,areaMax,maxPrice});
+  const { data, isFetching } = useGetPropertiesForRentQuery({roomsMin,bathsMin,areaMax,minPrice,rentFrequency});
  
   // console.log(roomsMin);
   
@@ -33,10 +35,13 @@ const Rent = () => {
   emptyColor='gray.200'
   color='blue.500'
   size='xl'
+  marginTop='300px'
+  marginBottom='300'
 />;
   const property=data?.hits;
   // console.log(property);
-
+  if(property.length===0) return (<Image src={svg}
+    width='400px' marginBottom='20' marginTop='40'/> )
   return (
     <>
   
@@ -58,7 +63,7 @@ const Rent = () => {
           <Text>Search Property By Filters</Text>
           <Icon paddingLeft="2" w="7" as={BsFilter} />
         </Flex>
-        {searchFilters&&  <SearchFilters setRoomsMin={setRoomsMin} setBathsMin={setBathsMin} setAreaMax={setAreaMax} setMaxPrice={setMaxPrice}/>        }
+        {searchFilters&&  <SearchFilters setRoomsMin={setRoomsMin} setBathsMin={setBathsMin} setAreaMax={setAreaMax} setMinPrice={setMinPrice} setRentFrequency={setRentFrequency}/>        }
         
 
        
@@ -101,7 +106,7 @@ const Rent = () => {
             <Box>
               {millify(property.price)}
               <Box as="span" color="gray.600" fontSize="sm">
-                /monthly
+                /{property.rentFrequency}
               </Box>
             </Box>
 
@@ -109,6 +114,7 @@ const Rent = () => {
         </Box>
       </Flex>
        ))}
+      
        </Flex>
     </>
   );

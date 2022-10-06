@@ -12,20 +12,19 @@ export const RstateApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl }),
   endpoints: (builder) => ({
     getPropertiesForRent: builder.query({
-      query: ({ roomsMin, bathsMin,areaMax,maxPrice }) =>
+      query: ({ roomsMin, bathsMin, areaMax, minPrice ,rentFrequency}) =>
         createRequest(
-          `properties/list?locationExternalIDs=5002&purpose=for-rent&hitsPerPage=15&roomsMin=${roomsMin}&bathsMin=${bathsMin}&areaMax=${areaMax}&priceMax=${maxPrice}`
+          `properties/list?locationExternalIDs=5002&purpose=for-rent&hitsPerPage=15&rentFrequency=${rentFrequency}&roomsMin=${roomsMin}&bathsMin=${bathsMin}&areaMax=${areaMax}&priceMin=${minPrice}`
         ),
     }),
     getPropertiesForSale: builder.query({
-      query: ({ roomsMin, bathsMin,areaMax,maxPrice }) =>
-      createRequest(
-        `properties/list?locationExternalIDs=5002&purpose=for-sale&hitsPerPage=15&roomsMin=${roomsMin}&bathsMin=${bathsMin}&areaMax=${areaMax}&maxPrice=${maxPrice}`
-      ),
+      query: ({ roomsMin, bathsMin, areaMax, minPrice ,rentFrequency}) =>
+        createRequest(
+          `properties/list?locationExternalIDs=5002&purpose=for-sale&hitsPerPage=15&rentFrequency=${rentFrequency}&roomsMin=${roomsMin}&bathsMin=${bathsMin}&areaMax=${areaMax}&priceMin${minPrice}`
+        ),
     }),
 
-    //  const data = await fetchApi(`${baseUrl}/properties/list?locationExternalIDs=${locationExternalIDs}&purpose=${purpose}&categoryExternalID=${categoryExternalID}&bathsMin=${bathsMin}&rentFrequency=${rentFrequency}&priceMin=${minPrice}&priceMax=${maxPrice}&roomsMin=${roomsMin}&sort=${sort}&areaMax=${areaMax}`);
-  }),
+    }),
 });
 
 export const { useGetPropertiesForRentQuery, useGetPropertiesForSaleQuery } =

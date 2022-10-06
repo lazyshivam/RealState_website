@@ -30,7 +30,8 @@ function App() {
               flexWrap="wrap"
               justifyContent="center"
               alignItems="center"
-              m="10"
+              flexDir='column'
+              
               
             >
               <Routes>
@@ -48,14 +49,14 @@ function App() {
         as="footer"
         role="contentinfo"
         py={{
-          base: "12",
-          md: "16",
+          base: "5",
+          md: "5",
         }}
       >
         <Stack
           spacing={{
             base: "4",
-            md: "5",
+            md: "2",
           }}
           justifyContent="center"
           alignItems="center"

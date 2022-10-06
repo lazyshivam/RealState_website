@@ -1,12 +1,14 @@
 import React from "react";
-import image from "../image/img.jpg";
-import { Box, Text, Flex, Button } from "@chakra-ui/react";
+import image from "../image/home12.jpg";
+import { Box, Text,Flex, Button } from "@chakra-ui/react";
 import {Link} from 'react-router-dom'
 import {ArrowForwardIcon} from '@chakra-ui/icons'
 const Resources = () => {
   return (
     <>
-    <Flex flexWrap="wrap" flexDir="column" justify="cneter" align='center' height="600px" width='100%' backgroundImage={image} >
+     
+    <Flex flexWrap="wrap" flexDir='column' align='center'  height="700px" width='100%' backgroundRepeat="no-repeat"  backgroundSize='cover' color='blue.400'
+ backgroundImage={image}  zIndex='1'>
 
    
       <Box justifyContent="center" textAlign="center" paddingTop="150px" >
@@ -27,10 +29,10 @@ const Resources = () => {
         </Text>
         
       </Box>
-      <Box paddingTop="20px">
+      <Box paddingTop="40px">
       <Button
             rightIcon={<ArrowForwardIcon />}
-            colorScheme="teal"
+            colorScheme="blue"
            
             // variant="outline"
           >

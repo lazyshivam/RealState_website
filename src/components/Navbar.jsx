@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { FiMenu } from "react-icons/fi";
-import image from "../Logo/Rlogo.jpeg";
+import image from "../Logo/Rlogo.png";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -26,7 +26,7 @@ const Navbar = () => {
       >
         <Container py={{ base: "4", lg: "5" }}>
           <HStack spacing="10" justify="space-between">
-            <img src={image} style={{ width: "152px" }} alt="" />
+           <Link to='/'> <img src={image} style={{ width: "152px" }} alt="" /></Link>
             {isDesktop ? (
               <Flex justify="space-between" flex="1">
                 <ButtonGroup variant="link" spacing="8">

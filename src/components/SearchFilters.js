@@ -4,11 +4,32 @@ import { Flex,Box,Select} from '@chakra-ui/react'
 
 const SearchFilters = (props) => {
 
+ 
 
   return (
    
      <Flex bg='gray.100' p='4' justifyContent='center' flexWrap='wrap'>
-     
+      <Box key='rentFreuqency'>
+          <Select  placeholder='Rent Frequency' w='fit-content' p='2' 
+           onChange={(e)=>{props.setRentFrequency(e.target.value)
+
+        }} >
+            
+              <option value='daily' key='daily'>
+               Daily
+              </option>
+              <option value='weekly' key='weekly'>
+               Weekly
+              </option>
+              <option value='monthly' key='monthly'>
+               Monthly
+              </option>
+              <option value='yearly' key='yearly'>
+               Yearly
+              </option>
+         
+          </Select>
+        </Box>
         <Box key='roomsMin'>
           <Select  placeholder='Min-Rooms' w='fit-content' p='2' 
            onChange={(e)=>{props.setRoomsMin(e.target.value)
@@ -82,25 +103,41 @@ const SearchFilters = (props) => {
           </Select>
         </Box>
         <Box key='maxPrice'>
-          <Select  placeholder='Max-Price' w='fit-content' p='2'
-           onChange={(e)=>{props.setMaxPrice(e.target.value)
+          <Select  placeholder='Min-Price' w='fit-content' p='2'
+           onChange={(e)=>{props.setMinPrice(e.target.value)
 
            }} >
             
-              <option value='10000' key='10000'>
-               10000
+              <option value='100000' key='100000'>
+               100000
               </option>
-              <option value='20000' key='20000'>
-               20000
+              <option value='200000' key='200000'>
+               200000
               </option>
-              <option value='30000' key='30000'>
-               30000
+              <option value='300000' key='300000'>
+               300000
               </option>
-              <option value='40000' key='40000'>
-               40000
+              <option value='400000' key='400000'>
+               400000
               </option>
-              <option value='50000' key='50000'>
-               50000
+              <option value='500000' key='500000'>
+               500000
+              </option>
+              <option value='600000' key='600000'>
+               600000
+              </option>
+              
+              <option value='1000000' key='1000000'>
+               1000000
+              </option>
+              <option value='1500000' key='1500000'>
+               1500000
+              </option>
+              <option value='2000000' key='2000000'>
+               2000000
+              </option>
+              <option value='3000000' key='3000000'>
+               3000000
               </option>
          
           </Select>
